@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pt.khanh.mvvmdemo.screen.main.ItemUserViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onItemClicked}">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:imageUrl="@{viewModel.mUserObservableField.avatar}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.mUserObservableField.login}"
+            app:layout_constraintLeft_toRightOf="@id/image_avatar"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
